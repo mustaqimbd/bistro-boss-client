@@ -11,6 +11,10 @@ import Dashboard from "../Layout/Dashboard";
 import Mycard from "../Pages/dashboard/card/Mycard";
 import PaymentHistory from "../Pages/dashboard/payment/PaymentHistory";
 import Allusers from "../Pages/dashboard/AllUsers/Allusers";
+import AddItem from "../Pages/dashboard/AddItem/AddItem";
+import AdminRoute from "./AdminRoute";
+import ManageItem from "../Pages/dashboard/ManageItem/ManageItem";
+import Payment from "../Pages/dashboard/payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -52,12 +56,24 @@ const router = createBrowserRouter([
                 element: <Mycard />
             },
             {
+                path: 'payment',
+                element: <Payment />
+            },
+            {
                 path: 'payment-history',
                 element: <PaymentHistory />
             },
             {
                 path: 'all-users',
-                element: <Allusers />
+                element: <AdminRoute> <Allusers /></AdminRoute>
+            },
+            {
+                path: 'addItem',
+                element: <AdminRoute><AddItem /></AdminRoute>
+            },
+            {
+                path: 'manage-item',
+                element: <AdminRoute><ManageItem /></AdminRoute>
             }
         ]
     }
